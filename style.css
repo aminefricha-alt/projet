@@ -1,0 +1,325 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root {
+  --encre: #1f2a44;        
+  --corail: #c0453a;   
+  --sauge: #4f6f63;     
+  --fond: #eadfd0;       
+  --surface: #f7efe3;     
+  --surface-alt: #e0d3c1;  
+  --bordure: #cbb9a1;      
+  --texte: #2b2b2b;        
+  --espace: 1rem;
+}
+
+html {
+  background-color: var(--fond);
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+  background-color: var(--fond);
+  color: var(--texte);
+  display: grid;
+  grid-template-areas:
+    "entete"
+    "navigation"
+    "contenu"
+    "pied";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--espace);
+}
+header { grid-area: entete; }
+nav    { grid-area: navigation; }
+main   { grid-area: contenu; }
+footer { grid-area: pied; }
+header h1 {
+  color: var(--encre);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+header figure {
+  margin: 0 0 1rem;
+}
+header img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  color: var(--encre);
+  border-bottom: 2px solid var(--corail);
+}
+
+h3 {
+  color: var(--encre);
+}
+
+strong {
+  color: var(--corail);
+}
+
+p, li {
+  line-height: 1.6;
+}
+
+.mise-en-avant {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+a:link {
+  color: var(--corail);
+}
+a:visited {
+  color: var(--sauge);
+}
+a:hover {
+  color: var(--encre);
+  text-decoration: underline;
+}
+a:active {
+  color: var(--encre);
+}
+
+nav {
+  background-color: var(--surface-alt);
+  border-radius: 8px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: var(--espace);
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--encre);
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+nav a:visited {
+  color: var(--encre);
+}
+
+nav a:hover {
+  background-color: var(--corail);
+  color: var(--surface);
+  text-decoration: none;
+}
+.grille-produits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.carte {
+  background-color: var(--surface);
+  border: 1px solid var(--bordure);
+  border-top: 4px solid var(--corail);
+  padding: var(--espace);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(31, 42, 68, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.carte .prix {
+  margin-top: auto;
+  font-weight: bold;
+  color: var(--corail);
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: var(--surface);
+}
+
+th, td {
+  border: 1px solid var(--bordure);
+  padding: 8px;
+}
+
+thead {
+  background-color: var(--encre);
+  color: var(--surface);
+}
+
+tbody th {
+  background-color: var(--surface-alt);
+  color: var(--encre);
+}
+
+tbody tr td:last-child {
+  text-align: right;
+  font-weight: bold;
+  color: var(--corail);
+}
+
+tbody tr:nth-child(even) td {
+  background-color: var(--fond);
+}
+
+caption {
+  caption-side: bottom;
+  font-style: italic;
+  padding-top: 8px;
+}
+
+fieldset {
+  border: 1px solid var(--bordure);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding: var(--espace);
+  background-color: var(--surface);
+}
+
+legend {
+  color: var(--encre);
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  max-width: 100%;
+  padding: 0.4rem;
+  border: 1px solid var(--bordure);
+  border-radius: 4px;
+  background-color: var(--fond);
+  color: var(--texte);
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--corail);
+  outline-offset: 1px;
+}
+
+button {
+  background-color: var(--corail);
+  color: var(--surface);
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--encre);
+}
+
+button[type="reset"] {
+  background-color: var(--sauge);
+}
+
+button[type="reset"]:hover {
+  background-color: var(--encre);
+}
+
+footer a,
+footer a:link,
+footer a:visited {
+  color: var(--surface);
+}
+
+footer a:hover {
+  color: var(--fond);
+}
+
+footer h3 {
+  color: var(--surface);
+}
+
+footer {
+  grid-area: pied;
+  display: block;
+  background-color: var(--encre);
+  color: var(--surface);
+  text-align: center;
+  padding: 50px 20px;
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 8px 8px 0 0;
+}
+
+#contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+#contact > div {
+  flex: 1;
+  min-width: 250px;
+}
+
+.carte-info {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  border: 2px solid var(--corail);
+  margin: 0 auto;
+  background-color: rgba(247, 239, 227, 0.06);
+}
+
+.carte-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 500px) {
+  .grille-produits { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grille-produits { grid-template-columns: repeat(3, 1fr); }
+}

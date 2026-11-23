@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander – Maison Élégance</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="commande.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Maison Élégance</h1>
+        <p>Prêt-à-porter femme, homme et enfant depuis 2010</p>
+
+        <figure>
+            <img src="vitrine2.jpg" alt="Boutique de vêtements avec robes, chemises et vestes sur cintres">
+            <figcaption>Notre nouvelle collection automne-hiver.</figcaption>
+        </figure>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#apropos">À propos</a></li>
+            <li><a href="index.html#produits">Nos collections</a></li>
+            <li><a href="index.html#services">Nos services</a></li>
+            <li><a href="catalogue.html">Catalogue</a></li>
+            <li><a href="commande.html">Commander</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Passer une commande</h2>
+        <form id="form-commande" action="traitement.php" method="post" novalidate>
+
+            <fieldset>
+                <legend>Vos coordonnées</legend>
+                <p>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" minlength="2" required aria-describedby="err-nom">
+                </p>
+                <p class="erreur" id="err-nom" role="alert"></p>
+
+                <p>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" minlength="2" required aria-describedby="err-prenom">
+                </p>
+                <p class="erreur" id="err-prenom" role="alert"></p>
+
+                <p>
+                    <label for="email">Adresse électronique :</label>
+                    <input type="email" id="email" name="email" placeholder="vous@exemple.tn" required aria-describedby="err-email">
+                </p>
+                <p class="erreur" id="err-email" role="alert"></p>
+
+                <p>
+                    <label for="telephone">Téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone" pattern="\+216[0-9]{8}" title="+216 suivi de 8 chiffres (ex : +21620123456)" placeholder="+21620123456" required aria-describedby="err-telephone">
+                </p>
+                <p class="erreur" id="err-telephone" role="alert"></p>
+
+                <p>
+                    <label for="cod">Code postal :</label>
+                    <input type="text" id="cod" name="cod" pattern="[0-9]{4}" maxlength="4" inputmode="numeric" required aria-describedby="err-cod">
+                </p>
+                <p class="erreur" id="err-cod" role="alert"></p>
+
+                <p>
+                    <label for="adr">Adresse de livraison :</label>
+                    <textarea id="adr" name="adr" rows="3" cols="40" required aria-describedby="err-adr"></textarea>
+                </p>
+                <p class="erreur" id="err-adr" role="alert"></p>
+
+                <p>
+                    <label for="gouvernorat">Gouvernorat :</label>
+                    <select id="gouvernorat" name="gouvernorat">
+                        <option value="Sfax" selected>Sfax</option>
+                        <option value="Tunis">Tunis</option>
+                        <option value="Sousse">Sousse</option>
+                        <option value="Gabès">Gabès</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Votre article</legend>
+
+                <p>
+                    <label for="article">Type d'article :</label>
+                    <select id="article" name="article" required aria-describedby="err-article">
+                        <option value="" selected disabled>Choisir…</option>
+                        <option value="robe">Robe</option>
+                        <option value="chemise">Chemise</option>
+                        <option value="pantalon">Pantalon</option>
+                        <option value="veste">Veste / Costume</option>
+                        <option value="enfant">Ensemble enfant</option>
+                        <option value="accessoire">Accessoire</option>
+                    </select>
+                </p>
+                <p class="erreur" id="err-article" role="alert"></p>
+
+                <fieldset>
+                    <legend>Taille</legend>
+                    <input type="radio" name="taille" id="t-xs" value="XS" required aria-describedby="err-taille">
+                    <label for="t-xs">XS</label>
+                    <input type="radio" name="taille" id="t-s" value="S">
+                    <label for="t-s">S</label>
+                    <input type="radio" name="taille" id="t-m" value="M">
+                    <label for="t-m">M</label>
+                    <input type="radio" name="taille" id="t-l" value="L">
+                    <label for="t-l">L</label>
+                    <input type="radio" name="taille" id="t-xl" value="XL">
+                    <label for="t-xl">XL</label>
+                    <p class="erreur" id="err-taille" role="alert"></p>
+                </fieldset>
+                <br>
+
+                <p>
+                    <label for="quantite">Quantité :</label>
+                    <input type="number" id="quantite" name="quantite" min="1" max="20" value="1" required aria-describedby="err-quantite">
+                </p>
+                <p class="erreur" id="err-quantite" role="alert"></p>
+
+                <p>
+                    Couleurs souhaitées :
+                    <input type="checkbox" id="c-noir" name="couleurs[]" value="noir" checked>
+                    <label for="c-noir">Noir</label>
+                    <input type="checkbox" id="c-blanc" name="couleurs[]" value="blanc">
+                    <label for="c-blanc">Blanc</label>
+                    <input type="checkbox" id="c-marine" name="couleurs[]" value="bleu marine">
+                    <label for="c-marine">Bleu marine</label>
+                    <input type="checkbox" id="c-beige" name="couleurs[]" value="beige">
+                    <label for="c-beige">Beige</label>
+                </p>
+
+                <p>
+                    <label for="couleur-perso">Autre couleur :</label>
+                    <input type="color" id="couleur-perso" name="couleur_perso" value="#d9594c">
+                </p>
+
+                <p>
+                    <label for="date">Date de livraison souhaitée :</label>
+                    <input type="date" id="date" name="date" min="2026-11-22" required aria-describedby="err-date">
+                </p>
+                <p class="erreur" id="err-date" role="alert"></p>
+
+                <p>
+                    <label for="photo">Photo du modèle (facultatif) :</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </p>
+
+                <p>
+                    <label for="options">Options :</label><br>
+                    <select multiple size="4" id="options" name="options[]">
+                        <option value="ourlet">Retouche d'ourlet</option>
+                        <option value="emballage">Emballage cadeau</option>
+                        <option value="broderie">Broderie initiales</option>
+                        <option value="repassage">Repassage</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="precisions">Précisions :</label><br>
+                    <textarea id="precisions" name="precisions" rows="4" cols="40" maxlength="200"></textarea><br>
+                    <small id="compteur">0 / 200</small>
+                </p>
+            </fieldset>
+
+
+            <p>
+                <button type="submit">Envoyer ma commande</button>
+                <button type="reset">Tout effacer</button>
+            </p>
+            <p id="message" role="status"></p>
+        </form>
+    </main>
+
+    <footer>
+        <div id="contact">
+            <div>
+                <h3>Coordonnées</h3>
+                <p>Maison Élégance – Sfax</p>
+                <p>Tél : +216 29 000 000</p>
+            </div>
+            <div class="carte-info">
+                <p>Suivez-nous :</p>
+                <ul>
+                    <li>Téléphone : +216 74 000 000</li>
+                    <li><a href="mailto:contact@exemple.tn">Email</a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Horaires</h3>
+                <p>Samedi – Jeudi : 9h – 20h</p>
+                <p>Vendredi : 9h – 12h</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
